@@ -230,62 +230,52 @@ MAIN_TEMPLATE = '''
 </html>
 '''
 
-CUSTOMER_TEMPLATE = '''
+CUSTOMER_TEMPLATE = """
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Repair Status - ARM TECH SERVICES</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARM Tech Services - Repair Status</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #eef2f5; margin: 0; padding: 20px; }
-        .container { max-width: 500px; margin: 0 auto; background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .header { text-align: center; border-bottom: 2px solid #f0f0f0; padding-bottom: 15px; margin-bottom: 20px; }
-        .header h2 { color: #1a252f; margin: 0; font-size: 20px; }
-        .header p { color: #17a2b8; font-size: 13px; margin: 5px 0 0 0; font-weight: bold; }
-        .status-card { background: #e8f4fd; border: 2px solid #3498db; padding: 15px; border-radius: 8px; text-align: center; margin-bottom: 20px; }
-        .status-value { font-size: 16px; font-weight: bold; color: #2c3e50; }
-        .details-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
-        .details-table td { padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
-        .details-table td:first-child { color: #7f8c8d; }
-        .details-table td:last-child { text-align: right; font-weight: bold; color: #2c3e50; }
-        .footer { text-align: center; font-size: 12px; color: #95a5a6; margin-top: 20px; }
+        body { font-family: Arial, sans-serif; background-color: #f4f6f9; margin: 0; padding: 20px; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        .card { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 100%; max-width: 400px; text-align: center; }
+        h2 { color: #007bff; margin-bottom: 5px; }
+        .shop-sub { color: #6c757d; font-size: 14px; margin-bottom: 25px; }
+        .info-group { text-align: left; margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .label { font-size: 12px; color: #888; text-transform: uppercase; font-weight: bold; }
+        .value { font-size: 16px; color: #333; margin-top: 3px; }
+        .status-badge { display: inline-block; padding: 8px 15px; border-radius: 20px; font-weight: bold; font-size: 14px; margin-top: 10px; background-color: #ffc107; color: #000; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h2>💻 ARM TECH SERVICES</h2>
-            <p>📍 {{ job[2] }}</p>
+    <div class="card">
+        <h2>ARM Tech Services</h2>
+        <div class="shop-sub">Repair Status Tracker</div>
+        
+        <div class="info-group">
+            <div class="label">Customer Name</div>
+            <div class="value">{{ job[2] }}</div>
+        </div>
+        
+        <div class="info-group">
+            <div class="label">Device Model</div>
+            <div class="value">{{ job[4] }}</div>
         </div>
 
-        <div class="status-card">
-            <div style="font-size: 11px; color: #555;">CURRENT REPAIR STATUS</div>
-            <div class="status-value">🔔 {{ job[9] }}</div>
+        <div class="info-group">
+            <div class="label">Reported Issue</div>
+            <div class="value">{{ job[5] }}</div>
         </div>
 
-        <table class="details-table">
-            <tr><td>Job ID</td><td>#{{ job[0] }}</td></tr>
-            <tr><td>Customer Name</td><td>{{ job[3] }}</td></tr>
-            <tr><td>Device Model</td><td>{{ job[5] }}</td></tr>
-            <tr><td>Issue Reported</td><td>{{ job[6] }}</td></tr>
-            <tr><td>Date Received</td><td>{{ job[1] }}</td></tr>
-            <tr><td>Testing Fee</td><td>₹{{ job[7] }}</td></tr>
-            <tr>
-                <td>Estimated Repair Cost</td>
-                <td style="color: #27ae60; font-size: 16px;">
-                    {% if job[8] == 0 %} Under Checking... {% else %} ₹{{ job[8] }} {% endif %}
-                </td>
-            </tr>
-        </table>
-
-        <div class="footer">
-            <p>Thank you for choosing ARM TECH SERVICES!</p>
+        <div class="info-group">
+            <div class="label">Current Status</div>
+            <div><span class="status-badge">{{ job[7] }}</span></div>
         </div>
     </div>
 </body>
 </html>
-'''
-
+"""
 @app.route('/')
 def home():
     pin = request.args.get('pin', '')
