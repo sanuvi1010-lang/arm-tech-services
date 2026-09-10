@@ -203,7 +203,7 @@ MAIN_TEMPLATE = '''
                 <td><b style="color: #28a745; font-size: 14px;">₹{{ job[8] }}</b></td>
                 <td><span class="badge">{{ job[9] }}</span></td>
                 <td>
-                    {% set tracking_url = base_url + "/track/" + (job[0]|string) %}
+                    {% set tracking_url = "https://arm-tech-services.onrender.com/track/" ~ (job[0]|string) %}
                     {% set wa_msg = "Hello " + job[3] + ", Track your " + job[5] + " repair status here: " + tracking_url %}
                     <a href="https://wa.me/91{{ job[4] }}?text={{ wa_msg | urlencode }}" target="_blank" class="btn-whatsapp">
                         📲 Send WhatsApp
