@@ -254,22 +254,22 @@ CUSTOMER_TEMPLATE = """
         
         <div class="info-group">
             <div class="label">Customer Name</div>
-            <div class="value">{{ job[2] }}</div>
+            <div class="value">{{ job[3] }}</div>
         </div>
         
         <div class="info-group">
             <div class="label">Device Model</div>
-            <div class="value">{{ job[4] }}</div>
-        </div>
-
-        <div class="info-group">
-            <div class="label">Reported Issue</div>
             <div class="value">{{ job[5] }}</div>
         </div>
 
         <div class="info-group">
+            <div class="label">Reported Issue</div>
+            <div class="value">{{ job[6] }}</div>
+        </div>
+
+        <div class="info-group">
             <div class="label">Current Status</div>
-            <div><span class="status-badge">{{ job[7] }}</span></div>
+            <div><span class="status-badge">{{ job[9] }}</span></div>
         </div>
     </div>
 </body>
