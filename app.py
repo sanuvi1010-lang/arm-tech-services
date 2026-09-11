@@ -54,8 +54,7 @@ STATUS_STAGES = [
     "6. Cancelled (Testing Charges Applicable)"
 ]
 
-BASE_URL = "http://127.0.0.1:5000"
-
+BASE_URL = "https://arm-tech-services.onrender.com"
 MAIN_TEMPLATE = '''
 <!DOCTYPE html>
 <html>
