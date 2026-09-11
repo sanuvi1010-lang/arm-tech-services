@@ -266,7 +266,10 @@ CUSTOMER_TEMPLATE = """
             <div class="label">Reported Issue</div>
             <div class="value">{{ job[6] }}</div>
         </div>
-
+        <div class="info-group">
+    <div class="label">Repair Cost</div>
+    <div class="value">₹{{ job[8] }}</div>
+        </div>
         <div class="info-group">
             <div class="label">Current Status</div>
             <div><span class="status-badge">{{ job[9] }}</span></div>
