@@ -267,6 +267,10 @@ CUSTOMER_TEMPLATE = """
             <div class="value">{{ job[6] }}</div>
         </div>
         <div class="info-group">
+            <div class="label">Testing Fee</div>
+            <div class="value">₹{{ job[7] }}</div>
+        </div>
+        <div class="info-group">
     <div class="label">Repair Cost</div>
     <div class="value">₹{{ job[8] }}</div>
         </div>
